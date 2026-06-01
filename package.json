@@ -1,13 +1,14 @@
 {
-  "name": "go-shortlinks",
-  "version": "1.0.0",
-  "description": "Fetches shortlinks from Payload CMS and generates Netlify _redirects file.",
-  "main": "fetch-redirects.js",
+  "name": "shortlinks",
+  "version": "2.0.0",
+  "description": "Tiny redirect service for go.spross.dev. Fetches shortlinks from Payload CMS and serves them as 301 redirects.",
+  "type": "module",
+  "main": "src/server.mjs",
   "scripts": {
-    "build": "node fetch-redirects.js"
+    "start": "node src/server.mjs",
+    "dev": "node --watch --env-file=.env src/server.mjs"
   },
-  "dependencies": {
-    "axios": "^1.6.0",
-    "dotenv": "^16.0.0"
+  "engines": {
+    "node": ">=20"
   }
 }
