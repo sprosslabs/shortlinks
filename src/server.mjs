@@ -64,7 +64,7 @@ const server = createServer((req, res) => {
     return res.end('Not found\n');
   }
 
-  res.writeHead(301, { Location: buildDestination(link, url.search) });
+  res.writeHead(302, { Location: buildDestination(link, url.search) });
   res.end();
 });
 

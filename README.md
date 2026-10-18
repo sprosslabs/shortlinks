@@ -2,11 +2,11 @@
 
 Tiny zero-dependency Node redirect service for **go.spross.dev**.
 
-Fetches shortlinks from Payload CMS (`/api/shortlinks`) every 5 minutes and serves them as 301 redirects.
+Fetches shortlinks from Payload CMS (`/api/shortlinks`) every 5 minutes and serves them as 302 redirects, so a changed destination reaches devices that followed the link before (a 301 is cached by browsers).
 
 ## Routes
 
-- `GET /<code>` → 301 to the destination (preserves query params unless `stripQueryParams: true`)
+- `GET /<code>` → 302 to the destination (preserves query params unless `stripQueryParams: true`)
 - `GET /healthz` → JSON `{ ok, entries, lastFetch, lastError }`
 - `GET /` → 301 to `FALLBACK_URL` (default `https://www.spross.dev`)
 - Anything else → 404
